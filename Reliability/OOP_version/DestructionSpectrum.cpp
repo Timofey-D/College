@@ -44,11 +44,11 @@ vector<double> DestructionSpectrum::createFVector(const double& p, const int& nu
 vector<double> DestructionSpectrum::getDestroySystem(Graph& graph, const double& M, const int& T1, const int& T2, const int& T3) {
     vector<double> destroySystem;
     destroySystem.resize(graph.getE());
-    double permutationEdges[graph.getE()];
+    vector<int> permutationEdges;
     Utilities::nullifyVector(destroySystem);
     for (int m = 1; m <= M; m++) {
-        Utilities::nullifyArray(permutationEdges, graph.getE());
-        createPermutationEdges(permutationEdges, graph.getE());
+        permutationEdges.assign(graph.getE(), 0);
+        createPermutationEdges(permutationEdges);
         graph.removeAllConnection();
         main::createConnection(graph);
         for (int index = 0; index < graph.getE(); index++) {
@@ -69,39 +69,39 @@ vector<double> DestructionSpectrum::getDestroySystem(Graph& graph, const double&
 int DestructionSpectrum::getCumulativeSpectrum(Graph &graph, vector<int>& turnOff, const int &T1, const int &T2, const int &T3) {
     vector<double> destroySystem(graph.getE(), 0);
     destroySystem.resize(graph.getE());
-    double permutationEdges[graph.getE()];
-    Utilities::nullifyArray(permutationEdges, graph.getE());
-    createPermutationEdges(permutationEdges, graph.getE());
+    vector<int> permutationEdges(graph.getE(), 0);
+    createPermutationEdges(permutationEdges);
     graph.removeAllConnection();
     main::createConnection(graph);
     for (int index = 0; index < graph.getE(); index++) {
+        Utilities::showVector(permutationEdges, false);
         turnOff[permutationEdges[index] - 1]++;
         graph.removeConnection(permutationEdges[index]);
         permutationEdges[index] = 0;
         graph.clearVisit();
         graph.findPath(T1);
         if (!graph.checkNode(T2) || !graph.checkNode(T3)) {
-            return index + 1;
+            return index;
         }
     }
-//    return destroySystem;
+    return -1;
 }
 
 
-void DestructionSpectrum::createPermutationEdges(double* start, int length) {
+void DestructionSpectrum::createPermutationEdges(vector<int>& permutation) {
     int random;
     bool flag;
-    for (int currNode = 0; currNode < length; currNode++) {
+    for (int currNode = 0; currNode < permutation.size(); currNode++) {
         do {
             flag = false;
             random = Random::randomInteger();
-            for (int lastNode = 0; lastNode < length; lastNode++) {
-                if (start[lastNode] == random && start[lastNode] != 0)
+            for (int lastNode = 0; lastNode < permutation.size(); lastNode++) {
+                if (permutation[lastNode] == random && permutation[lastNode] != 0)
                     flag = true;
             }
 
         } while (flag);
-        start[currNode] = random;
+        permutation[currNode] = random;
     }
 }
 

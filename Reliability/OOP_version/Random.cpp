@@ -27,3 +27,11 @@ int Random::randomInteger() {
     uniform_int_distribution<> intDist(1, 30); // define the range
     return intDist(gen);
 }
+
+/// The method randomize a integer number between 1 and 30.
+int Random::randomIntegerRange(int start, int end) {
+    random_device rd; // obtain a random number from hardware
+    mt19937 gen(rd()); // seed the generator
+    uniform_int_distribution<> intDist(start, end); // define the range
+    return intDist(gen);
+}

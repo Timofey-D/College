@@ -12,6 +12,8 @@ public:
 
 /// The method randomize a integer number between 1 and 30.
     static int randomInteger();
+    static int randomIntegerRange(int start, int end);
 };
+
 
 #endif //RELIABILITY_NETWORK_RANDOM_H

@@ -86,7 +86,7 @@ void showMonteCarlo_FirstTask(Graph& graph, int& T1, int& T2, int& T3) {
         printf("%s = %d\n", "M", m);
         printf("%s%7s%s%7s%s%7s\n", "P", "|", "R", "|", "R/M", "|");
         for (double & p : P) {
-            R = MonteCarloMethod::computeReliability(graph, m, p, T1, T2, T3);
+            R = MonteCarloMethod::computeReliabilityDependsOnP(graph, m, p, T1, T2, T3);
             printf("%.2f%4s%5d%3s%.5f%3s\n", p, "|", R, "|", (double) R / m, "|");
         }
         printf("\n");
@@ -101,7 +101,7 @@ void showMonteCarlo_SecondTask(Graph& graph, int M, double P, int round, int& T1
     printf("%s = %d\n", "M", M);
     printf("%s%7s%s%7s%s%7s\n", "P", "|", "R", "|", "R/M", "|");
     for (int loop = 0; loop < round; loop++) {
-        R = MonteCarloMethod::computeReliability(graph, M, P, T1, T2, T3);
+        R = MonteCarloMethod::computeReliabilityDependsOnP(graph, M, P, T1, T2, T3);
         RM[loop] = (double) R / M;
         printf("%.2f%4s%5d%3s%.5f%3s\n", P, "|", R, "|", (double) R / M, "|");
     }
@@ -127,57 +127,160 @@ void showCumulativeSpectrum(Graph& graph, int T1, int T2, int T3) {
 }
 
 
-void showBimTable(const vector<vector<int>>& bimTable) {
-    printf("%3s", "#");
+void showBimTable(const vector<vector<double>>& bimTable) {
+    printf("%2s%1s", "#", "");
     for (int z = 0; z < 30; z++) {
-        printf("%4d", z + 1);
+        printf("%10d", z + 1);
     }
     cout << endl;
-    for (int conn = 0; conn < bimTable.size(); conn++) {
-        printf("%2d:", conn + 1);
-        for (int pos = 0; pos < bimTable[conn].size(); pos++) {
-            printf("%4d", bimTable[conn][pos]);
+    for (int line = 0; line < bimTable.size(); line++) {
+        printf("%2d:", line + 1);
+        for (double col : bimTable[line]) {
+            printf("%10.5f", col);
         }
         cout << endl;
     }
     cout << endl;
 }
 
-void getBIMTable(vector<vector<int>>& bimTable, const vector<int>& turnOffEdges, const int& destroySystem) {
+void getBIMTable(vector<vector<double>>& bimTable, const vector<int>& turnOffEdges, const int& destroySystem) {
     int Ai = destroySystem - 1;
-    cout << Ai << endl;
     for (int pos = 0; pos < bimTable[Ai].size(); pos++) {
         bimTable[Ai][pos] += turnOffEdges[pos];
     }
-    for (int conn = 0; conn < bimTable.size(); conn++) {
-        for (int pos = 0; pos < bimTable.size(); pos++) {
-            bimTable[Ai][pos] += bimTable[conn][pos];
+}
+
+
+void cumulativeBimTable(vector<vector<double>>& bimTable) {
+    for (int col = 0; col < bimTable.size(); col++) {
+        for (int line = 0; line < bimTable.size(); line++) {
+            if ((line - 1) >= 0)
+                bimTable[line][col] = bimTable[line - 1][col] + bimTable[line][col];
         }
     }
 }
 
 
+void division(vector<vector<double>>& bimTable, int& M) {
+    for (auto & conn : bimTable) {
+        for (auto & item : conn) {
+            item /= (double) M;
+        }
+    }
+}
+
+
+bool contains(const vector<int>& vector, int edge) {
+    for (auto & e : vector) {
+        if (e == edge)
+            return false;
+    }
+    return true;
+}
+
+
+void findEssentialEdge(const vector<vector<double>>& bimTable) {
+    vector<int> essentialEdges;
+    vector<double> maximum(30, 0);
+    int max = INT16_MIN;
+    int min = INT16_MAX;
+    double average = 0;
+    int count = 0;
+    for (int line = 0; line < bimTable.size(); line++) {
+        for (int col = 0; col < bimTable[line].size(); line++) {
+            if (bimTable[line][col] != 0) {
+                count++;
+                average += bimTable[line][col];
+            }
+        }
+    }
+    average /= count;
+    int important = 0;
+    int unimportant = 0;
+    for (int col = 0; col < bimTable.size(); col++) {
+        int edge = col + 1;
+        for (int line = 0; line < bimTable[col].size(); line++) {
+//            if (bimTable[line][col] > average) {
+//                max = bimTable[line][col];
+//                maximum[edge] =
+//            }
+        }
+    }
+    cout << "Average: " << average << endl;
+    Utilities::showVector(essentialEdges, false);
+}
+
+
 void showCumulativeBIMSpectrum(Graph& graph, int T1, int T2, int T3) {
     int destroySystem;
+    vector<double> cumulativeVector(graph.getE(), 0);
     vector<int> turnOffEdges(graph.getE(), 0);
-    vector<vector<int>> bimTable(graph.getE());
+    vector<vector<double>> bimTable(graph.getE());
     vector<int> placeDestroy;
-    for (auto & arr : bimTable) {
+    for (auto & arr : bimTable)
         arr.resize(graph.getE(), 0);
-    }
-    int M = 10;
+    int M = 5;
     for (int iteration = 0; iteration < M; iteration++) {
         destroySystem = DestructionSpectrum::getCumulativeSpectrum(graph, turnOffEdges, T1, T2, T3);
-
+        cout << destroySystem << endl;
+        Utilities::showVector(turnOffEdges, false);
+        cumulativeVector[destroySystem - 1]++;
         getBIMTable(bimTable, turnOffEdges, destroySystem);
         turnOffEdges.assign(graph.getE(), 0);
-//        DestructionSpectrum::cumulativeVector(destroySystem);
-//        DestructionSpectrum::statisticDestroySystem(destroySystem, m);
-//        Utilities::showVector(destroySystem, true);
     }
+    showBimTable(bimTable);
+    cumulativeBimTable(bimTable);
+    division(bimTable, M);
+    findEssentialEdge(bimTable);
     showBimTable(bimTable);
 }
 
+void printStat(const vector<double>& reliabilities, double& p) {
+    double max = INT16_MIN;
+    int edge_max = 0;
+    double min = INT16_MAX;
+    int edge_min = 0;
+    for (int i = 0; i < reliabilities.size(); ++i) {
+        for (int j = 0; j < reliabilities.size(); ++j) {
+            if (j != i) {
+                if (reliabilities[i] > reliabilities[j] && reliabilities[i] > max) {
+                    max = reliabilities[i];
+                    edge_max = i + 1;
+                    min = reliabilities[j];
+                    edge_min = j + 1;
+                }
+                else if (reliabilities[i] < reliabilities[j] && reliabilities[i] <= min) {
+                    if (reliabilities[j] > max) {
+                        max = reliabilities[j];
+                        edge_max = j + 1;
+                    }
+                    min = reliabilities[i];
+                    edge_min = i + 1;
+                }
+            }
+        }
+    }
+    cout << p << ":\n" << "Edge = " << edge_max << " = " << max << "\n" << "Edge = " << edge_min << " = " << min << endl;
+    cout << endl;
+}
+
+
+void checkEdgeByMonteCarlo(Graph& graph, int& T1, int& T2, int& T3) {
+    int M = 10000;
+    cout << M << endl;
+    double P[] = {0.4, 0.5, 0.6, 0.7, 0.8, 0.9};
+    vector<double> reliabilities;
+    for (auto & p : P) {
+        for (int edge = 1; edge <= 30; edge++) {
+            double R_down = MonteCarloMethod::computeReliability(graph, edge, 1, p, M, T1, T2, T3);
+            double R_up = MonteCarloMethod::computeReliability(graph, edge, 0, p, M, T1, T2, T3);
+            reliabilities.push_back((R_up - R_down) / M);
+        }
+        Utilities::showVector(reliabilities, false);
+        printStat(reliabilities, p);
+        reliabilities.clear();
+    }
+}
 
 /// The method main is an entrance program.
 int main() {
@@ -201,10 +304,16 @@ int main() {
     /// The second challenge is DestructionSpectrum for round 1000 and 10 times and 0.95
 //    showDestructionSpectrum_SecondTask(graph, 1000, 10, 0.95, T1, T2, T3);
 //    showCumulativeSpectrum(graph, T1, T2, T2);
-    showCumulativeBIMSpectrum(graph, T1, T2, T3);
+//    showCumulativeBIMSpectrum(graph, T1, T2, T3);
+    checkEdgeByMonteCarlo(graph, T1, T2, T3);
+//    int M = 10;
+//    double p = 0.5;
+//    MonteCarloMethod::computeReliabilityDependsOnP(graph, M, p, T1, T2, T3);
+//    cout << endl;
+//    MonteCarloMethod::computeReliabilityExperiment(graph, M, p, T1, T2, T3);
     auto stop = chrono::high_resolution_clock::now();
-    auto res = (chrono::duration_cast<seconds>(stop - start)).count();
-    cout << "Execution time: " << res << endl;
+    cout << "Execution time in seconds: " << (chrono::duration_cast<seconds>(stop - start)).count() << endl;
+    cout << "Execution time in nanoseconds: " << (chrono::duration_cast<nanoseconds>(stop - start)).count() << endl;
     return 0;
 }
 

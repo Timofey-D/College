@@ -5,6 +5,7 @@
 #include "Graph.h"
 #include <Utilities.h>
 #include <algorithm>
+#include <Random.h>
 using namespace std;
 
 
@@ -146,6 +147,25 @@ void Graph::findPath(const int& start) {
     }
 }
 
+
+void Graph::experiment(const int& start) {
+    addNode(start);
+    vector<int> queue;
+    for (int i = 0; i < Graph::matrix[start - 1].size(); i++) {
+        if (Graph::matrix[start - 1][i] != 0 && queue.size() != 3)
+            queue.push_back(i);
+    }
+    int edge;
+    for (int i = 0; i < Graph::matrix[start - 1].size(); i++) {
+        int random = Random::randomIntegerRange(0, queue.size());
+        if (!queue.empty() && random < queue.size())
+            edge = queue[random];
+        else
+            edge = i;
+        if (Graph::matrix[start - 1][edge] != 0 && !checkNode(edge + 1))
+            Graph::findPath(edge + 1);
+    }
+}
 
 void Graph::clearVisit() {
     Graph::visited.clear();

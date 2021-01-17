@@ -22,9 +22,9 @@ Graph.h
 vector
 -
 
-/Users/dankevich.te/Desktop/Developing/C++/Reliability/Statistic.h
+/Users/dankevich.te/Desktop/Developing/C++/College/Reliability/OOP_version/Statistic.h
 
-/Users/dankevich.te/Desktop/Developing/C++/Reliability/main.cpp
+/Users/dankevich.te/Desktop/Developing/C++/College/Reliability/OOP_version/main.cpp
 algorithm
 -
 iostream
@@ -32,9 +32,9 @@ iostream
 array
 -
 main.h
-/Users/dankevich.te/Desktop/Developing/C++/Reliability/main.h
+/Users/dankevich.te/Desktop/Developing/C++/College/Reliability/OOP_version/main.h
 Statistic.h
-/Users/dankevich.te/Desktop/Developing/C++/Reliability/Statistic.h
+/Users/dankevich.te/Desktop/Developing/C++/College/Reliability/OOP_version/Statistic.h
 MonteCarloMethod.h
 -
 DestructionSpectrum.h
@@ -46,7 +46,7 @@ Graph.h
 chrono
 -
 
-/Users/dankevich.te/Desktop/Developing/C++/Reliability/main.h
+/Users/dankevich.te/Desktop/Developing/C++/College/Reliability/OOP_version/main.h
 Graph.h
 -
 

@@ -5,34 +5,35 @@ CMakeFiles/Reliability_Network.dir/DestructionSpectrum.cpp.o
  ../Graph.h
  ../Statistic.h
  ../Utilities.h
- /Users/dankevich.te/Desktop/Developing/C++/Reliability/DestructionSpectrum.cpp
- /Users/dankevich.te/Desktop/Developing/C++/Reliability/DestructionSpectrum.h
- /Users/dankevich.te/Desktop/Developing/C++/Reliability/Random.h
- /Users/dankevich.te/Desktop/Developing/C++/Reliability/main.h
+ /Users/dankevich.te/Desktop/Developing/C++/College/Reliability/OOP_version/DestructionSpectrum.cpp
+ /Users/dankevich.te/Desktop/Developing/C++/College/Reliability/OOP_version/DestructionSpectrum.h
+ /Users/dankevich.te/Desktop/Developing/C++/College/Reliability/OOP_version/Random.h
+ /Users/dankevich.te/Desktop/Developing/C++/College/Reliability/OOP_version/main.h
 CMakeFiles/Reliability_Network.dir/Graph.cpp.o
+ ../Random.h
  ../Utilities.h
- /Users/dankevich.te/Desktop/Developing/C++/Reliability/Graph.cpp
- /Users/dankevich.te/Desktop/Developing/C++/Reliability/Graph.h
+ /Users/dankevich.te/Desktop/Developing/C++/College/Reliability/OOP_version/Graph.cpp
+ /Users/dankevich.te/Desktop/Developing/C++/College/Reliability/OOP_version/Graph.h
 CMakeFiles/Reliability_Network.dir/MonteCarloMethod.cpp.o
  ../Graph.h
  ../Random.h
  ../main.h
- /Users/dankevich.te/Desktop/Developing/C++/Reliability/MonteCarloMethod.cpp
- /Users/dankevich.te/Desktop/Developing/C++/Reliability/MonteCarloMethod.h
+ /Users/dankevich.te/Desktop/Developing/C++/College/Reliability/OOP_version/MonteCarloMethod.cpp
+ /Users/dankevich.te/Desktop/Developing/C++/College/Reliability/OOP_version/MonteCarloMethod.h
 CMakeFiles/Reliability_Network.dir/Random.cpp.o
- /Users/dankevich.te/Desktop/Developing/C++/Reliability/Random.cpp
- /Users/dankevich.te/Desktop/Developing/C++/Reliability/Random.h
+ /Users/dankevich.te/Desktop/Developing/C++/College/Reliability/OOP_version/Random.cpp
+ /Users/dankevich.te/Desktop/Developing/C++/College/Reliability/OOP_version/Random.h
 CMakeFiles/Reliability_Network.dir/Statistic.cpp.o
- /Users/dankevich.te/Desktop/Developing/C++/Reliability/Statistic.cpp
- /Users/dankevich.te/Desktop/Developing/C++/Reliability/Statistic.h
+ /Users/dankevich.te/Desktop/Developing/C++/College/Reliability/OOP_version/Statistic.cpp
+ /Users/dankevich.te/Desktop/Developing/C++/College/Reliability/OOP_version/Statistic.h
 CMakeFiles/Reliability_Network.dir/Utilities.cpp.o
- /Users/dankevich.te/Desktop/Developing/C++/Reliability/Utilities.cpp
- /Users/dankevich.te/Desktop/Developing/C++/Reliability/Utilities.h
+ /Users/dankevich.te/Desktop/Developing/C++/College/Reliability/OOP_version/Utilities.cpp
+ /Users/dankevich.te/Desktop/Developing/C++/College/Reliability/OOP_version/Utilities.h
 CMakeFiles/Reliability_Network.dir/main.cpp.o
  ../DestructionSpectrum.h
  ../Graph.h
  ../MonteCarloMethod.h
  ../Utilities.h
- /Users/dankevich.te/Desktop/Developing/C++/Reliability/Statistic.h
- /Users/dankevich.te/Desktop/Developing/C++/Reliability/main.cpp
- /Users/dankevich.te/Desktop/Developing/C++/Reliability/main.h
+ /Users/dankevich.te/Desktop/Developing/C++/College/Reliability/OOP_version/Statistic.h
+ /Users/dankevich.te/Desktop/Developing/C++/College/Reliability/OOP_version/main.cpp
+ /Users/dankevich.te/Desktop/Developing/C++/College/Reliability/OOP_version/main.h

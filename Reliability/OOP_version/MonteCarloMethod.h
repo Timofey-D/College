@@ -9,8 +9,10 @@
 class MonteCarloMethod {
 public:
     static void fillRandomStateArray(double * array, int& length);
-    static void changingConnection(Graph& graph, double * array, int length, double& P);
-    static int computeReliability(Graph& graph, int& M, double& P, int& T1, int& T2, int& T3);
+    static void changingConnection(Graph& graph, const double * array, int length, double& P);
+    static int computeReliabilityDependsOnP(Graph& graph, int& M, double& P, int& T1, int& T2, int& T3);
+    static int computeReliability(Graph& graph, int edge, int stateEdge, double P, int& M, int& T1, int& T2, int& T3);
+    static int computeReliabilityExperiment(Graph& graph, int& M, double& P, int& T1, int& T2, int& T3);
 };
 
 

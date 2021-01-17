@@ -6,5 +6,5 @@ CXX_FLAGS = -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/Ma
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/Users/dankevich.te/Desktop/Developing/C++/Reliability/. 
+CXX_INCLUDES = -I/Users/dankevich.te/Desktop/Developing/C++/College/Reliability/OOP_version/. 
 

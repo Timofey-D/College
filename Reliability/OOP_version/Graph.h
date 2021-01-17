@@ -25,6 +25,7 @@ class Graph {
         int getV();
         int getE();
         void stateOfEdges();
+        void experiment(const int& start);
 private:
         int V;
         int E;

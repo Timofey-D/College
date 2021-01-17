@@ -4,13 +4,13 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/Users/dankevich.te/Desktop/Developing/C++/Reliability/DestructionSpectrum.cpp" "/Users/dankevich.te/Desktop/Developing/C++/Reliability/cmake-build-debug/CMakeFiles/Reliability_Network.dir/DestructionSpectrum.cpp.o"
-  "/Users/dankevich.te/Desktop/Developing/C++/Reliability/Graph.cpp" "/Users/dankevich.te/Desktop/Developing/C++/Reliability/cmake-build-debug/CMakeFiles/Reliability_Network.dir/Graph.cpp.o"
-  "/Users/dankevich.te/Desktop/Developing/C++/Reliability/MonteCarloMethod.cpp" "/Users/dankevich.te/Desktop/Developing/C++/Reliability/cmake-build-debug/CMakeFiles/Reliability_Network.dir/MonteCarloMethod.cpp.o"
-  "/Users/dankevich.te/Desktop/Developing/C++/Reliability/Random.cpp" "/Users/dankevich.te/Desktop/Developing/C++/Reliability/cmake-build-debug/CMakeFiles/Reliability_Network.dir/Random.cpp.o"
-  "/Users/dankevich.te/Desktop/Developing/C++/Reliability/Statistic.cpp" "/Users/dankevich.te/Desktop/Developing/C++/Reliability/cmake-build-debug/CMakeFiles/Reliability_Network.dir/Statistic.cpp.o"
-  "/Users/dankevich.te/Desktop/Developing/C++/Reliability/Utilities.cpp" "/Users/dankevich.te/Desktop/Developing/C++/Reliability/cmake-build-debug/CMakeFiles/Reliability_Network.dir/Utilities.cpp.o"
-  "/Users/dankevich.te/Desktop/Developing/C++/Reliability/main.cpp" "/Users/dankevich.te/Desktop/Developing/C++/Reliability/cmake-build-debug/CMakeFiles/Reliability_Network.dir/main.cpp.o"
+  "/Users/dankevich.te/Desktop/Developing/C++/College/Reliability/OOP_version/DestructionSpectrum.cpp" "/Users/dankevich.te/Desktop/Developing/C++/College/Reliability/OOP_version/cmake-build-debug/CMakeFiles/Reliability_Network.dir/DestructionSpectrum.cpp.o"
+  "/Users/dankevich.te/Desktop/Developing/C++/College/Reliability/OOP_version/Graph.cpp" "/Users/dankevich.te/Desktop/Developing/C++/College/Reliability/OOP_version/cmake-build-debug/CMakeFiles/Reliability_Network.dir/Graph.cpp.o"
+  "/Users/dankevich.te/Desktop/Developing/C++/College/Reliability/OOP_version/MonteCarloMethod.cpp" "/Users/dankevich.te/Desktop/Developing/C++/College/Reliability/OOP_version/cmake-build-debug/CMakeFiles/Reliability_Network.dir/MonteCarloMethod.cpp.o"
+  "/Users/dankevich.te/Desktop/Developing/C++/College/Reliability/OOP_version/Random.cpp" "/Users/dankevich.te/Desktop/Developing/C++/College/Reliability/OOP_version/cmake-build-debug/CMakeFiles/Reliability_Network.dir/Random.cpp.o"
+  "/Users/dankevich.te/Desktop/Developing/C++/College/Reliability/OOP_version/Statistic.cpp" "/Users/dankevich.te/Desktop/Developing/C++/College/Reliability/OOP_version/cmake-build-debug/CMakeFiles/Reliability_Network.dir/Statistic.cpp.o"
+  "/Users/dankevich.te/Desktop/Developing/C++/College/Reliability/OOP_version/Utilities.cpp" "/Users/dankevich.te/Desktop/Developing/C++/College/Reliability/OOP_version/cmake-build-debug/CMakeFiles/Reliability_Network.dir/Utilities.cpp.o"
+  "/Users/dankevich.te/Desktop/Developing/C++/College/Reliability/OOP_version/main.cpp" "/Users/dankevich.te/Desktop/Developing/C++/College/Reliability/OOP_version/cmake-build-debug/CMakeFiles/Reliability_Network.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "AppleClang")
 
