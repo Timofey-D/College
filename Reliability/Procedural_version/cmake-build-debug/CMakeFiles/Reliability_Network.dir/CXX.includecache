@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../UtilitiesWatch.h
+
+/Users/dankevich.te/Desktop/Developing/C++/Reliability/Random.h
+
+/Users/dankevich.te/Desktop/Developing/C++/Reliability/Reliability.cpp
+algorithm
+-
+iostream
+-
+cstdlib
+-
+ctime
+-
+array
+-
+UtilitiesWatch.h
+-
+Random.h
+/Users/dankevich.te/Desktop/Developing/C++/Reliability/Random.h
+
